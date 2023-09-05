@@ -1,4 +1,8 @@
 #include "lists.h"
+#include <stddef.h>
+#include <stdlib.h>
+
+#define NULL ((void *)0)
 
 /**
  * insert_node - insert node into sorted singly linked list
