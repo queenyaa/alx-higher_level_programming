@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-for ascii_val in range(ord('Z'), ord('A') - 1, -1):
-    if (ascii_val - ord('A')) % 2 == 0:
-        char = chr(ascii_val)
-    else:
-        char = chr(ascii_val + ord('a') - ord('A'))
-    print(char, end="")
-print()
+upper = False
+for ascii_val in range(-122, -96):
+    ascii_val = -ascii_val
+    if upper:
+        ascii_val = ascii_val - (ord('a') - ord('A'))
+    print("{character}".format(character=chr(ascii_val)), end="")
+    upper = not upper
