@@ -1,12 +1,18 @@
 #!/usr/bin/python3
 
 def fizzbuzz():
-    for e in range(1, 101):
-        if e % 15 == 0:
-            print("FizzBuzz ", end="")
+    e = 1
+    while e <= 100:
+        if e % 3 == 0 and e % 5 == 0:
+            print("FizzBuzz", end="")
         elif e % 3 == 0:
-            print("Fizz " , end="")
+            print("Fizz" , end="")
         elif e % 5 == 0:
-            print("Buzz ", end="")
+            print("Buzz", end="")
         else:
-            print("{} ".format(e), end="")
+            print(e, end="")
+        
+        if e != 100:
+            print(" ", end="")
+        e += 1
+    print(" ", end="")
