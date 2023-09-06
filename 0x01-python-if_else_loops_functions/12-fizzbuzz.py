@@ -6,12 +6,12 @@ def fizzbuzz():
         if e % 3 == 0 and e % 5 == 0:
             print("FizzBuzz", end="")
         elif e % 3 == 0:
-            print("Fizz" , end="")
+            print("Fizz", end="")
         elif e % 5 == 0:
             print("Buzz", end="")
         else:
             print(e, end="")
-        
+
         if e != 100:
             print(" ", end="")
         e += 1
