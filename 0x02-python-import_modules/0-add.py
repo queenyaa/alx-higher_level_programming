@@ -7,8 +7,5 @@ if __name__ == "__main__":
     a = 1
     b = 2
 
-    # Calculate the result using add function
-    res = add(a, b)
-
     # Print the result
-    print("{} + {} = {}".format(a, b, res))
+    print("{:d} + {:d} = {:d}".format(a, b, add(a,b)))
