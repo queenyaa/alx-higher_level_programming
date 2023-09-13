@@ -29,7 +29,8 @@ void print_python_bytes(PyObject *p)
 	else
 		lmt = size + 1;
 	printf("  first %ld bytes:", lmt)
-	for (x = 0; x < size && x < 10)
+
+	for (x = 0; x < lmt; x++)
 	{
 		if (bytes[x] >= 0)
 			printf(" %02x", bytes[x]);
@@ -50,12 +51,12 @@ void print_python_list(PyObject *p)
 	long int size, x;
 	PyListObject *l;
 
-	size = ((PyVarOjbect *)(p))->ob_size;
+	size = ((PyVarObject *)(p))->ob_size;
 	l = (PyListObject *)p;
 
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List - %ld\n", size);
-	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
+	printf("[*] Allocated = %ld\n", l->allocated);
 
 	for (x = 0; x < size; x++)
 	{
