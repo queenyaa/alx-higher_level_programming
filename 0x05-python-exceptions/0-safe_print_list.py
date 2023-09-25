@@ -20,5 +20,5 @@ def safe_print_list(my_list=[], x=0):
         finally:
             print("")
         """
-    print() print newline char to separate the output
+    print() # print newline char to separate the output
     return (cnt)
