@@ -5,7 +5,7 @@ def safe_print_list(my_list=[], x=0):
 
     cnt = 0 #initialize a counter to keep track of elements printed
 
-    for d in range(x)
+    for d in range(x):
         try:
         # for d in range(x):
             print(my_list[d], end="")   #print without new line
