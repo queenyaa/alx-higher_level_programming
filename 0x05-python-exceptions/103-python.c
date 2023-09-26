@@ -19,7 +19,7 @@ void print_python_bytes(PyObject *p)
 	}
 
 	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
-	printf("  trying string: %s\n", bytes->ob_sval);
+	printf("  trying string: %s\n", byt->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size >= 10)
 		sz = 10;
@@ -46,7 +46,7 @@ void print_python_float(PyObject *p)
 
 	PyFloatObject *f_obj = (PyFloatObject *)p;
 
-	fflus(stdout);
+	fflush(stdout);
 
 	printf("[.] float object info\n");
 	if (strcmp(p->ob_type->tp_name, "float") != 0)
@@ -54,7 +54,7 @@ void print_python_float(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	buffer = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
+	buf = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
 			Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", buf);
 	PyMem_Free(buf);
@@ -64,7 +64,7 @@ void print_python_float(PyObject *p)
  * print_python_list - basic info printing
  * @p: PyObject list
  */
-void print_python_list(Pyobject *p)
+void print_python_list(PyObject *p)
 {
 	Py_ssize_t sz, aloc, x;
 	const char *typ;
