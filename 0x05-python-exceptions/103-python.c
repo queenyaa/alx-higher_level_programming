@@ -54,7 +54,7 @@ void print_python_float(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	buf = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
+	buf = PyOS_double_to_string(f_obj->ob_fval, 'r', 0,
 			Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", buf);
 	PyMem_Free(buf);
@@ -92,7 +92,7 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", x, typ);
 		if (strcmp(typ, "bytes") == 0)
 			print_python_bytes(lst->ob_item[x]);
-		else if (strcmp(type, "float") == 0)
-			print_python_float(list->ob_item[x]);
+		else if (strcmp(typ, "float") == 0)
+			print_python_float(lst->ob_item[x]);
 	}
 }
