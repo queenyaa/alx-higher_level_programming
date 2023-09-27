@@ -120,7 +120,7 @@ class Square:
 
         if self.size == 0:
             return myn
-        
+
         for x in range(self.position[1]):
             myn += "\n"
         for x in range(0, self.size):
