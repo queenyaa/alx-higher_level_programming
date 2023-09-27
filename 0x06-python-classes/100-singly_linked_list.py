@@ -58,6 +58,8 @@ class Node:
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
 
+        self.__data = value
+
     @property
     def next_node(self):
         """
@@ -81,6 +83,7 @@ class Node:
         """
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
+        self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -98,6 +101,28 @@ class SinglyLinkedList:
         """
         self.head = None
 
+    def __str__(self):
+        """
+        Returns a string representation of the linked list
+
+        Returns:
+            str: a string representation of the linked list
+        """
+        current_node = self.head
+        # cnt = 0
+        result = ""
+
+        while current_node:
+            """
+            if cnt > 0:
+                result += "\n"
+            """
+            result += str(current_node.data) + "\n"
+            # cnt += 1
+            current_node = current_node.next_node
+        return result[:-1]
+
+
     def sorted_insert(self, value):
         """
         Inserts a new Node into the correct sorted position in the linked
@@ -109,39 +134,17 @@ class SinglyLinkedList:
         Raises:
             TypeError: if value is not an integer
         """
-        if not isinstance(value, int):
-            raise TypeError("data must be an integer")
-
         new_node = Node(value)
-
-        if self.head is None:
-            # if the list is empty, set the new node as the head
+        if not self.head:
             self.head = new_node
-        elif value < self.head.data:
-            """
-            if the new value is smaller than the head's data insert it at
-                the beginning
-            """
+            return
+        if value < self.head.data:
             new_node.next_node = self.head
             self.head = new_node
-        else:
-            current = self.head
-            while current.next_node is not None and \
-                    current.next_node.data < value:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
-
-    def __str__(self):
-        """
-        Returns a string representation of the linked list
-
-        Returns:
-            str: a string representation of the linked list
-        """
-        result = ""
-        current = self.head
-        while current is not None:
-            result += str(current.data) + "\n"
-            current = current.next_node
-        return result.rstrip()
+            return
+        current_node = self.head
+        while current_node.next_node and current_node.next_node.data < value:
+            current_node = current_node.next_node
+        if current_node.next_node:
+            new_node.next_node = current_node.next_node
+        current_node.next_node = new_node
