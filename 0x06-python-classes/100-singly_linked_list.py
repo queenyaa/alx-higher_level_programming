@@ -122,7 +122,6 @@ class SinglyLinkedList:
             current_node = current_node.next_node
         return result[:-1]
 
-
     def sorted_insert(self, value):
         """
         Inserts a new Node into the correct sorted position in the linked
