@@ -1,0 +1,79 @@
+To test the 0-add_integer module
+========================================
+
+The 0-add_integer module takes two numbers, either or both integers or floats as arguments and returns the summation in integer.
+
+
+Usage
+========================================
+
+Importing function from the module:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Adding two positive integers (a = 2 and b = 5)
+	>>> add_integer(2, 5)
+	7
+
+
+Adding one negative and one positive integers (a = -4 and b = 12)
+	>>> add_integer(-4, 12)
+	8
+
+
+Adding two negative integers (a = -7 and b = -3)
+	>>> add_integer(-7, -3)
+	-10
+
+Ading two integers with the second being the same as the default value of b (a = 12 and b = 98)
+	>>> add_integer(12)
+	110
+
+Adding a positive float and a positive integer (a = 9 and b = 5.5)
+	>>> add_integer(9, 5.5)
+	14
+
+Adding an integer and a float, when b is the default value (a = 3.5 and b = 98)
+	>>> add_integer(3.5)
+	101
+
+Adding a positive float and a negative integer (a = 8.5 and b = -5)
+	>>> add_integer(8.5, -5)
+	3
+
+Add 2 negative floats (a = -3.5 and b = -4.0)
+	>>> add_integer(-3.5, -4.0)
+	-7
+
+Adding 2 positive floats (a = 3.4 and b = 5.2)
+	>>> add_integer(3.4, 5.2)
+	8
+
+Adding an integer number and a string (a = 6 and b = ("Nice")
+	>>> add_integer(6, "Nice")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+Passing no argument to the function
+	>>> add_integer(None)
+	Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+Adding a tuple
+	>>> add_integer((1, 1))
+	Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+Adding a list adn a number
+	>>> add_integer([], 12)
+	Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+Passing one string
+	>>> add_integer("Alx")
+	Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
