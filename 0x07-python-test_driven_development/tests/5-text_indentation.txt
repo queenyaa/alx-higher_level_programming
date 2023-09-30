@@ -1,0 +1,37 @@
+This module defines text_indentation(text) function
+======================================================
+
+Usage
+======================================================
+
+Function works so that text is printed with 2 new lines after these characters:
+'.', '?' and ':'.
+
+======================================================
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation("Where?")
+	Where?
+	
+	>>>
+
+======================================================
+To trim spaces at the beginnging of a line:
+
+	>>> text_indentation("   Hi Queen.")
+	Hi Queen.
+	
+	>>>
+
+======================================================
+To trim spaces at the end of the line:
+
+	>>> text_indentation("Hi Queen.  ")
+	Hi Queen.
+	
+	>>>
+
+======================================================
+
+	>>> text_indentation("Come on, Queen")
+	Come on, Queen
