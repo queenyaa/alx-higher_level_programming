@@ -53,10 +53,16 @@ class Rectangle:
         return 2 * (self.__widht + self.__height)
 
     def __str__(self):
-        
+
         if self.__width == 0 or self.__height == 0:
             return ""
-        return '\n'.join([str(self.print_symbol) * self.__width] * self.__height)
+
+        rec = []
+        for x in range(self.__height):
+            [rec.append(str(self.print_symbol)) for y in range(self.__width)]
+            if x != self.__height - 1:
+                rec.append("\n")
+        return "".join(rec)
 
     def __repr__(self):
 
