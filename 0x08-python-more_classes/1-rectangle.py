@@ -1,19 +1,14 @@
 #!/usr/bin/python3
 
-"""
-
-Module to define Rectangle
-"""
+"""Module to define Rectangle"""
 
 
 class Rectangle:
     """Represents a rectangle"""
 
-
     def __init__(self, width=0, height=0):
         """
         Initializes a Rectangle object with optional width and height
-
         Args:
             width (int): The width of the rectangle (default is 0).
             height (int): height of the rectangle (default is 0).
@@ -31,16 +26,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """
-        Setter method for setting the width of the rectangle
 
-        Args:
-            value (int): the value to set as the width
-
-        Raises:
-            TypeError: If value is not an integer
-            ValueError: If value is less than 0.
-        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -57,16 +43,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """
-        Setter method for setting the height of the rectangle
 
-        Args:
-            value (int): value to set as the height
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: value is less than 0
-        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
