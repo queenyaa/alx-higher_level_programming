@@ -24,6 +24,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
+
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -32,10 +33,12 @@ class Rectangle:
 
     @property
     def height(self):
+
         return self.__height
 
     @height.setter
     def height(self, value):
+
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -75,8 +78,9 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+
         if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_t must be an instance of Rectangle")
+            raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
 
