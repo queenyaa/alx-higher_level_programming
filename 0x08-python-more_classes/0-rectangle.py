@@ -8,5 +8,7 @@ function
 
 
 class Rectangle:
-
+    """
+    Function of a rectangle
+    """
     pass
