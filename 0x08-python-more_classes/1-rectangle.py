@@ -7,6 +7,8 @@ Module to define Rectangle
 
 
 class Rectangle:
+    """Represents a rectangle"""
+
 
     def __init__(self, width=0, height=0):
         """
