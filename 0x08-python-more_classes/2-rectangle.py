@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
-"""
-This module calculates area of
-the rectangle
-"""
+"""This module calculates area of the rectangle"""
 
 
 class Rectangle:
+    """defines the rectangle function"""
 
     def __init__(self, width=0, height=0):
         """
@@ -23,8 +21,7 @@ class Rectangle:
     @property
     def width(self):
         """
-        Getter method for retrieving the width
-        of the rectangle
+        Getter method for retrieving the width of the rectangle
         """
         return self.__width
 
@@ -32,13 +29,8 @@ class Rectangle:
     def width(self, value):
         """
         Setter method for setting the width of the rectangle
-
         Args:
             value (int): the value to set as the width
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than 0
         """
 
         if not isinstance(value, int):
@@ -50,8 +42,7 @@ class Rectangle:
     @property
     def height(self):
         """
-        Getter method for retrieving the height
-        of the rectangle
+        Getter method for retrieving the height of the rectangle
         """
         return self.__height
 
@@ -59,13 +50,8 @@ class Rectangle:
     def height(self, value):
         """
         Setter method for setting the height of the rectangle
-
         Args:
             value (int): the value to set as the height
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than 0
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -79,7 +65,6 @@ class Rectangle:
 
         Returns:
             int: the area of the rectangle
-
         """
         return self.__width * self.__height
 
