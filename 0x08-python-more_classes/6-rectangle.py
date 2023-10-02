@@ -1,15 +1,23 @@
 #!/usr/bin/python3
 
-"""Class to define rectangle"""
+"""
+This module defines the class rectangle
+"""
 
 
 class Rectangle:
-    """function to define rectangle and return a string representation"""
+    """
+    class that defines a Rectangle and prints a message when an instance
+    is deleted
+    """
+    number_of_instances = 0  # Class attribute initialized to 0
+
 
     def __init__(self, width=0, height=0):
 
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1  # increment the class attribute
 
     @property
     def width(self):
@@ -28,7 +36,7 @@ class Rectangle:
     @property
     def height(self):
 
-        return self.__height
+        return self._height
 
     @height.setter
     def height(self, value):
@@ -37,7 +45,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self._height = value
 
     def area(self):
 
@@ -45,22 +53,21 @@ class Rectangle:
 
     def perimeter(self):
 
-        if self.__width == 0 or self.__height ==0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.__width + self.height)
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """
-        Returns a str representation of the rectangle with '#'
-        if width or height = 0, an empty str is returned
-        """
+
         if self.__width == 0 or self.__height == 0:
             return ""
         return '\n'.join(['#' * self.__width] * self.__height)
 
     def __repr__(self):
-        """
-        Returns a str representation of the rectangle for recreating an
-        instance
-        """
+
         return (f"Rectangle({self.__width}, {self.__height})")
+
+    def __del__(self):
+
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
