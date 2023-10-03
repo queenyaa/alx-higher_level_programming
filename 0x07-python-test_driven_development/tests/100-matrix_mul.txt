@@ -1,0 +1,68 @@
+This module defines the matrix_mul(m_a, m_b) function
+==========================================================
+
+Usage
+==========================================================
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Multiply two 2 x 2 matrices:
+
+	>>> matrix_mul([[3, 4], [1, 2]], [[1, 4], [2, 3]])
+	[[11, 24], [5, 10]]
+
+Multiply 1 x 2 by 2 x 2 matrices:
+
+	>>> matrix_mul([[4, 6]], [[5, 6], [7, 8]])
+	[[62, 72]]
+
+Multiply two 3 x 3 matrices:
+
+	>>> matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, 3, 2], [5, 4, 6], [9, 7, 8]])
+	[[38, 32, 38], [83, 74, 86], [128, 116, 134]]
+
+When m_b is not a list
+
+	>>> matrix_mul([[2, 6]], "ugh")
+	Traceback (most recent call last):
+	TypeError: m_b must be a list
+
+When m_a is not a list
+	>>> matrix_mul("hmm", [[5, 9]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
+
+When m_a is empty
+	>>> matrix_mul([[]], [[1, 9]])
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
+When m_b is empty
+	>>> matrix_mul([[9, 5]], [[]])
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+
+When one element of m_a is not an integer or a float
+	>>> matrix_mul([[6, "wow"]], [[9, 3]])
+	Traceback (most recent call last):
+	TypeError: m_a should contain only integers or floats
+
+When one element of m_b is not an integer of a float
+	>>> matrix_mul([[9, 2]], [["run", 4]])
+	Traceback (most recent call last):
+	TypeError: m_b should contain only integers or floats
+
+When m_a is not a rectangle
+	>>> matrix_mul([[1, 6], [9, 5, 10, 23]], [[2, 6], [9, 2]])
+	Traceback (must recent call last):
+	TypeError: each row of m_a must be of same size
+
+When m_b is not a rectangle
+	>>> matrix_mul([[1, 6], [9, 5]], [[10, 2, 5, 6], [9, 2]])
+	Traceback (must recent call last):
+	TypeError: each row of m_b must be of same size
+
+When m_a and m_b cannot be multiplied
+	>>> matrix_mul([[2, 4]], [[4, 6], [10, 5], [9, 3]])
+	Traceback (must recent call last):
+	ValueErrror: m_a and m_b can't be multiplied
