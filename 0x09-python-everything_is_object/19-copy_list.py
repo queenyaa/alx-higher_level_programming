@@ -4,5 +4,4 @@
 
 
 def copy_list(l):
-    """function to return a copied list"""
     return l[:]
