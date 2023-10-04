@@ -7,10 +7,5 @@ creation of new instance attributes
 
 
 class LockedClass:
-    """class that prevents the dynamic creation of new instances attributes"""
-
+    """class defined to prevent dynamic creation"""
     __slots__ = ["first_name"]
-"""
-    def __init__(self, first_name):
-        self.first_name = first_name
-"""
