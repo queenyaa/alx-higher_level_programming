@@ -41,14 +41,14 @@ def matrix_divided(matrix, div):
 
     len_f = 0
 
-    note_t = "Each row of the matrix must have the same size"
+    note_t1 = "Each row of the matrix must have the same size"
 
     for el in matrix:
         if not el or not isinstance(el, list):
             raise TypeError(note_t)
 
         if len_f != 0 and len(el) != len_f:
-            raise TypeError(note_t)
+            raise TypeError(note_t1)
 
         for nm in el:
             if not type(nm) in (int, float):
