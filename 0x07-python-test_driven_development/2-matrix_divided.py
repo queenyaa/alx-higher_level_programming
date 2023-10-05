@@ -49,7 +49,7 @@ def matrix_divided(matrix, div):
 
         if len_f != 0 and len(el) != len_f:
             raise TypeError(note_t)
-        
+
         for nm in el:
             if not type(nm) in (int, float):
                 raise TypeError(note_t)
