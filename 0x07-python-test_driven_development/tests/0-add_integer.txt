@@ -66,7 +66,7 @@ Adding a tuple
                 ...
         TypeError: a must be an integer
 
-Adding a list adn a number
+Adding a list and a number
 	>>> add_integer([], 12)
 	Traceback (most recent call last):
                 ...
@@ -77,3 +77,27 @@ Passing one string
 	Traceback (most recent call last):
                 ...
         TypeError: a must be an integer
+
+When there is Overflow:
+	>>> add_integer(float('inf'), 0)
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+Where there is Overflow 2:
+	>>> add_integer(float('inf'), float('-inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+Where there is NaN 1:
+	>>> add_integer(0, float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
+Where there is NaN 2:
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
