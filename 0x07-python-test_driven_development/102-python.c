@@ -18,7 +18,7 @@ void print_python_string(PyObject *p)
 			 printf("  type: compact ascii%s\n");
 		else
 			 printf("  type: compact unicode object%s\n");
-		printf("  length: %zd\n value: %s\n", py_len, str);
+		printf("  length: %zd\n  value: %s\n", py_len, str);
 	}
 	else
 	{
