@@ -4,6 +4,9 @@ Using MyList class
 Importing:
 	>>> MyList = __import__('1-my_list').MyList
 
+	>>> print_sorted = MyList.print_sorted
+	>>> mod_docs = __import__('1-my_list').__doc__
+
 Testing:
 	>>> my_list = MyList()
 	>>> my_list.append(9)
@@ -20,13 +23,14 @@ Testing:
 	>>> my_list = MyList("beautiful")
 	>>> print(my_list)
 	['b', 'e', 'a', 'u', 't', 'i', 'f', 'u', 'l']
+
 	>>>my_list.print_sorted()
 	['a', 'b', 'e', 'f', 'i', 'l', 't', 'u', 'u']
-
 
 	>>> my_list = MyList([5, 8, 3, 1])
 	>>> my_list.print.sorted()
 	[1, 3, 5, 8]
+
 	>>> print(my_list)
 	[5, 8, 3, 1]
 
@@ -35,8 +39,10 @@ Testing:
 	>>> my_list.append(11)
 	>>> print(my_list)
 	[5, 11]
+
 	>>> my_list.print_sorted()
 	[5, 11]
+
 	>>> my_list.append(-23)
 	>>> my_list.append(-5)
 	[-23, -5, 5, 11]
@@ -44,6 +50,7 @@ Testing:
 	>>> my_list = MyList()
 	>>> print(my_list)
 	[]
+
 	>>> my_list.print_sorted()
 	[]
 
@@ -53,6 +60,7 @@ Testing:
 	>>> my_list.append(-8)
 	>>> print(my_list)
 	[-8, 5]
+
 	>>> my_list.print_sorted() == my_list
 	[5, -8]
 	False
