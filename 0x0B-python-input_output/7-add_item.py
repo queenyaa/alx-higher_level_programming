@@ -24,4 +24,5 @@ def add_items():
         fin_list.append(argv[x])
     save_to_json_file(fin_list, filename)
 
+
 add_items()
