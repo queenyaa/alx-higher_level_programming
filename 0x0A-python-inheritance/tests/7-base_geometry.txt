@@ -1,0 +1,69 @@
+The "7-base_geometry" Module
+============================
+
+Demonstrate how to use BaseGeometry
+
+Import the BaseGeometry class
+
+	>>> BaseGeometry = __import__('7-base_geometry).BaseGeometry
+
+Create an instance of BaseGeometry
+
+	>> basg = BaseGeometry()
+
+Validating integer using "integer_validator"
+
+	Validating a valid int
+	>>> basg.integer_validator("my_int", 12)
+
+	This should not raise any exceptions.
+
+	Validating a non-integer value (e.g. "John"):
+	>>> basg.integer_validator("name", "John")
+	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+	Validating an integer <= 0
+	>>> basg.integer_validator("age", 0)
+	Traceback (most recent call last):
+	ValueError: age must be greater than 0.
+
+	>>> basg.integer_validator("distance", -4)
+	Traceback (most recent call last):
+	ValueError: distance must be greater than 0
+
+Successfully validate a positive integer
+
+	>>> basg.integer_validator("str", 8)
+	>>> basg.integer_validator("str", 50)
+
+	Validate an empty string as the name:
+	>>> basg.integer_validator("", 1)
+
+	Validate "None" as the name:
+	>>> basg.integer_validator(None, 1)
+
+	Validate float
+	>>> basg.integer_validator("str", 6.6)
+	Traceback (most recent call last):
+	TypeError: <name> must be an integer
+
+	Validate boolean
+	>>> basg.integer_validator("str", True)
+	Traceback (most recent call last):
+        TypeError: <name> must be an integer
+
+	Validate list
+	>>> basg.integer_validator("str", [51])
+	Traceback (most recent call last):
+        TypeError: <name> must be an integer
+
+	Validate a non-integer, a tuple
+	>>> basg.integer_validator("str", (1, 2))
+	Traceback (most recent call last):
+        TypeError: <name> must be an integer
+
+	Validate a non-integer, set
+	>>> basg.integer_validator("str" {3, 3})
+	Traceback (most recent call last):
+        TypeError: <name> must be an integer
