@@ -1,44 +1,50 @@
 #!/usr/bin/python3
 
 """
-A Python script that reads line from standard input, processes and computer
-the statistics as required
+Program to read IP logs from stdin and print
+metrics every 10 lines
 """
 
 
+def print_sorted(stat_cd):
+    """
+    Print status codes with nonzero value
+    """
+
+    sort_key = sorted(stat_cd.keys())
+    print('\n'.join(["{:d}: {:d}".format(g, stat_cd[g])
+                        for g in sort_key if stat_cd[g] != 0]))
+
+
 if __name__ == '__main__':
-    from sys import stdin
+    import sys
 
-    cd_dict = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-    tot_size = 0
-
+    tot = 0
+    stat_cd = \
+            {cd: 0 for cd in [200, 300, 400, 401, 403, 404, 405, 500]}
     try:
-        x = 0
-        for lyn in stdin:
+        o = 0
+        for lyn in sys.stdin:
+            wds = lyn.split()
             try:
-                stripd = lyn.split()
-                f_size = int(stripd[-1])
-                tot_size += f_size
+                file_size = int(wds[-1])
+                tot += file_size
             except (IndexError, ValueError):
                 pass
 
             try:
-                cd = int(stripd[-2])
-                if cd in cd_dict:
-                    cd_dict[cd] += 1
+                code = int(wds[-2])
+                if code in stat_cd:
+                    stat_cd[code] += 1
             except (IndexError, ValueError):
                 pass
 
-            x += 1
+            o += 1
 
-            if x % 10 == 0:
-                print("File size: {}".format(tot_size))
-                for stat_cd in sorted(cd_dict.keys()):
-                    if cd_dict[stat_cd] > 0:
-                        print("{}: {}:".format(stat_cd, cd_dict[stat_cd]))
+            if o % 10 == 0:
+                print("File size: {}".format(tot))
+                print_sorted(stat_cd)
 
-    except KeyboardInterrupt:
-        print("File size: {}".format(tot_size))
-        for stat_cd in sorted(cd_dict.keys()):
-            if cd_dict[stat_cd] > 0:
-                print("{}: {}".format(stat_cd, cd_dict[stat_cd]))
+    except KeyboadInterrupt:
+        print("File size: {}".format(tot))
+        print_sorted(stat_cd)

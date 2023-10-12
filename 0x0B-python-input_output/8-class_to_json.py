@@ -17,4 +17,4 @@ def class_to_json(obj):
         else:
             n_dict[key] = value
 
-    return n_dict
+    return obj.__dict__
