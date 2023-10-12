@@ -17,16 +17,11 @@ def append_after(filename="", search_string="", new_string=""):
         new_string (str): string to insert after each matching
         line
     """
-
-    try:
-        with open(filename, 'r') as file:
-            lines = file.readlines()
-
-        with open(filename, 'w') as file:
-            for line in lines:
-                file.write(line)
-                if search_string in line:
-                    file.write(new_string)
-
-    except FileNotFoundError:
-        pass
+    txt = ""
+    with open(filename) as f:
+        for lyn in f:
+            txt += lyn
+            if search_string in lyn:
+                txt += new_string
+    with open(filename, "w") as f:
+        f.write(txt)
