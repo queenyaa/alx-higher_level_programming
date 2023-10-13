@@ -76,3 +76,20 @@ class Rectangle(Base):
         rectangle
         """
         return self.__width * self.__height
+
+    def display(self):
+        """
+        Print the Rectangle instance with '#'
+        characters
+        """
+        for _ in range(self.__height):
+            print("#" * self.__width)
+
+    def __str__(self):
+        """
+        Return a string representation of the rectangle
+        instance
+        """
+        coord = f"{self.__x}/{self.__y}"
+        dimen = f"{self.__width}/{self.__height}"
+        return (f"[Rectangle] ({self.id}) {coord} - {dimen}")
