@@ -82,8 +82,10 @@ class Rectangle(Base):
         Print the Rectangle instance with '#'
         characters
         """
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            print("#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """
@@ -93,3 +95,32 @@ class Rectangle(Base):
         coord = f"{self.__x}/{self.__y}"
         dimen = f"{self.__width}/{self.__height}"
         return (f"[Rectangle] ({self.id}) {coord} - {dimen}")
+
+    def update(self, *args, **kwargs):
+        """
+        Assign arguments to each attribute in a specific
+        order
+        """
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.__width = args[1]
+            if len(args) >= 3:
+                self.__height = args[2]
+            if len(args) >= 4:
+                self.__x = args[3]
+            if len(args) >= 5:
+                self.__y = args[4]
+        else:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'width':
+                    self.__width = value
+                elif key == 'height':
+                    self.__height = value
+                elif key == 'x':
+                    self.__x = value
+                elif key == 'y':
+                    self.__y = value
