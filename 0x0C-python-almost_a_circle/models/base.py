@@ -146,7 +146,7 @@ class Base:
             for _ in range(2):
                 t.forward(rectangle.width)
                 t.left(90)
-                t.forward(retangle.height)
+                t.forward(rectangle.height)
                 t.left(90)
             t.end_fill()
 
