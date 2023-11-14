@@ -27,8 +27,7 @@ Additional Information
 -   Ensure that the MySQL server is running before executing the script.
 -   Make sure to replace -hlocalhost, -uroot, and -p with the appropriate host, username, and password if they differ in your MySQL setup.
 
-##Task 1: ##
-Certainly! Below is an example documentation for Task 1: "Create a database."
+---
 
 ---
 
@@ -85,9 +84,6 @@ If you encounter any issues, verify the following:
 - The script file (`1-create_database_if_missing.sql`) is in the correct location.
 
 ---
-
----
-Certainly! Below is an example documentation for Task 2: "Remove a Database."
 
 ---
 
@@ -147,6 +143,72 @@ If you encounter any issues, verify the following:
 - MySQL server is running.
 - You have the correct root credentials.
 - The script file (`2-remove_database.sql`) is in the correct location.
+
+---
+
+---
+
+# Task 3: List Tables in a Database
+=======================================================
+
+## Objective
+
+The objective of this task is to create a script that lists all the tables in a specified database on the MySQL server. The database name will be passed as an argument to the `mysql` command.
+
+## Instructions
+
+### Step 1: Create the SQL Script
+
+Create a file named `3-list_tables.sql` with the following content:
+
+```sql
+-- List all tables in the specified database
+SHOW TABLES;
+```
+
+### Step 2: Execute the Script
+
+Run the script by passing the database name as an argument to the `mysql` command. Use the following command in the terminal:
+
+```bash
+cat 3-list_tables.sql | mysql -hlocalhost -uroot -p mysql
+```
+
+You will be prompted to enter the MySQL root password.
+
+### Step 3: Verify Table Listing
+
+After entering the password, the script will execute and list all the tables in the specified database (`mysql` in the example).
+
+Example Output:
+
+```plaintext
+Enter password:
+Tables_in_mysql
+columns_priv
+component
+db
+default_roles
+engine_cost
+func
+general_log
+...
+user
+```
+
+## Additional Information
+
+- Ensure that the MySQL server is running before executing the script.
+- Make sure to replace `-hlocalhost`, `-uroot`, and `-p` with the appropriate host, username, and password if they differ in your MySQL setup.
+- The script uses the `SHOW TABLES;` statement to display a list of all tables in the specified database.
+
+## Troubleshooting
+
+If you encounter any issues, verify the following:
+
+- MySQL server is running.
+- You have the correct root credentials.
+- The script file (`3-list_tables.sql`) is in the correct location.
 
 ---
 
