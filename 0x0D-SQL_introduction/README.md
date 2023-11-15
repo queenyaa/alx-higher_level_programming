@@ -947,3 +947,21 @@ The script essentially retrieves data from the temperatures table, calculates th
 
 ---
 
+##Task 19 - Display top City highest temperatures ##
+=================================================================
+
+Explanation:
+
+    SELECT city, AVG(temperature) AS avg_temp: This part of the script selects the city column and calculates the average temperature (AVG(temperature)) for each city. The result of this calculation is given the alias avg_temp.
+
+    FROM temperatures: Specifies the table from which to select the data. In this case, it's assumed that the temperatures are stored in a table named temperatures.
+
+    WHERE MONTH(date) IN (7, 8): Filters the records to include only those with a date in July or August. This ensures that the script considers only temperatures from these two months.
+
+    GROUP BY city: Groups the results by the city column. This is necessary because we want to calculate the average temperature for each city.
+
+    ORDER BY avg_temp DESC: Orders the results by the calculated average temperature (avg_temp) in descending order (DESC).
+
+    LIMIT 3: Limits the output to only the top 3 cities based on the average temperature.
+
+The script essentially retrieves data from the temperatures table, filters it to include only records from July and August, calculates the average temperature for each city, and presents the top 3 cities with the highest average temperatures during these months.
