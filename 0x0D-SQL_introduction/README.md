@@ -965,3 +965,22 @@ Explanation:
     LIMIT 3: Limits the output to only the top 3 cities based on the average temperature.
 
 The script essentially retrieves data from the temperatures table, filters it to include only records from July and August, calculates the average temperature for each city, and presents the top 3 cities with the highest average temperatures during these months.
+
+---
+
+---
+
+## Task 20 - Display max temperature of each state ##
+=====================================================================
+
+Explanation:
+
+    SELECT state, MAX(temperature) AS max_temp: This part of the script selects the state column and calculates the maximum temperature (MAX(temperature)) for each state. The result of this calculation is given the alias max_temp.
+
+    FROM temperatures: Specifies the table from which to select the data. In this case, it's assumed that the temperatures are stored in a table named temperatures.
+
+    GROUP BY state: Groups the results by the state column. This is necessary because we want to calculate the maximum temperature for each state.
+
+    ORDER BY state: Orders the results by the state column in ascending order. This ensures that the output is sorted alphabetically by state name.
+
+The script essentially retrieves data from the temperatures table, calculates the maximum temperature for each state, and presents the results ordered by state name.
