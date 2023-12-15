@@ -21,7 +21,7 @@ if __name__ == "__main__":
     d_cursor = d_connect.cursor()
 
     # Execute the query to select and display states
-    d_cursor.execute("SELECT * FROM states")
+    d_cursor.execute("SELECT id * FROM states")
     existing_states = d_cursor.fetchall()
 
     if not existing_states:
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             "('California'), ('Arizona'), ('Texas'), ('New York'), ('Nevada')"
         )
 
-    d_cursor.execute("SELECT * FROM states")
+    d_cursor.execute("SELECT id * FROM states")
 
     # Fetch all the rows
     rows = d_cursor.fetchall()
