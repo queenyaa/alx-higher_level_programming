@@ -4,7 +4,7 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".
+        print("Usage: {} <username> <password> <state_name>".
               format(sys.argv[0]))
         sys.exit(1)
 
@@ -21,13 +21,19 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    query = """
+    SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ')
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    """
+
     cursor.execute(query, (state_name,))
-
-    rows = cursor.fetchall()
-
-    for row in rows:
-        print(row)
+    result = cursor.fetchone()
+    if result and result[0]:
+        print(result[0])
+    else:
+        print("No cities found for the specified state.")
 
     cursor.close()
     db.close()
