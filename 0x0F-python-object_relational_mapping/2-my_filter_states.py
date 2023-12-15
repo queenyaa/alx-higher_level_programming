@@ -1,8 +1,20 @@
 #!/usr/bin/python3
+"""
+A script that takws in an arg and displays all
+the states table of database, `hbtn_0e_0_usa` where
+name matches the argument
+"""
+
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
+    """
+    Script to take 4 args, and use the MySQLdb module connecting
+    to a MySQL server running on localhost at port 3306
+    """
+
     if len(sys.argv) != 5:
         print("Usage: {} <username> <password> <database> <state_name>".
               format(sys.argv[0]))
