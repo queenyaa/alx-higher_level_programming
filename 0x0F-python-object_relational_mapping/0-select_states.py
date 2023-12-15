@@ -13,6 +13,7 @@ if __name__ == "__main__":
     Access to the database and states from
     the database
     """
+
     d_connect = MySQLdb.connect(
         host="localhost", user=argv[1], port=3306, passwd=argv[2], db=argv[3])
 
