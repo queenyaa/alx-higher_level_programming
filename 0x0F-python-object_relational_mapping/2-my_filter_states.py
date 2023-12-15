@@ -5,7 +5,7 @@ the states table of database, `hbtn_0e_0_usa` where
 name matches the argument
 """
 
-import MySQLdb
+import MySQLdb as db
 import sys
 
 
@@ -15,28 +15,16 @@ if __name__ == "__main__":
     to a MySQL server running on localhost at port 3306
     """
 
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".
-              format(sys.argv[0]))
-        sys.exit(1)
+    d_connect = db.connect(host="localhost", port=3306,
+                           user=argv[1], passwd=argv[2], db=argv[3])
 
-    username, password, database, state_name = sys.argv[1],
-    sys.argv[2], sys.argv[3], sys.argv[4]
+    d_cursor = d_connect.cursor()
 
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
+            states.id ASC"
+    d_cursor.execute(query.format(argv[4]))
 
-    cursor = db.cursor()
-
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-
-    rows = cursor.fetchall()
+    rows = d_cursor.fetchall()
 
     for row in rows:
         print(row)
