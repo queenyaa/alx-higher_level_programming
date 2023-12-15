@@ -1,9 +1,20 @@
 #!/usr/bin/python3
+"""
+Script to take an arg and display all
+values of states in table of database
+where name matches the argument
+"""
+
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
-    # Check if correct number of arguments is provided
+    """
+    Script should take3 args
+    and use MySQLdb module
+    """
+
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
