@@ -21,7 +21,7 @@ if __name__ == "__main__":
         d_cursor.execute(
             "INSERT INTO states (name) VALUES "
             "('California'), ('Arizona'), ('Texas'), ('New York'), ('Nevada')"
-    )
+        )
 
     d_cursor.execute("SELECT * FROM states")
 
