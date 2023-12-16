@@ -4,7 +4,7 @@ Script to add State object 'Louisiana' to the database
 'hbtn_0e_6_usa'
 """
 
-from model_state import State and Base
+from model_state import State, Base
 from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -16,8 +16,12 @@ if __name__ == "__main__":
     imports State and Base from model_state
     """
 
+    user = '{}'.format(argv[1])
+    password = '{}'.format(argv[2])
+    db = '{}'.format(argv[3])
+
     d_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-        argv[1], argv[2], argv[3])
+        user, password, db)
 
     engine = create_engine(d_url)
     Session = sessionmaker(bind=engine)
@@ -26,7 +30,8 @@ if __name__ == "__main__":
 
     n_state = State(name="Louisiana")
     session.add(n_state)
-    session.commit()
 
-    print('{0}'.format(n_state.id))
-    session.close()
+    for state in session.query(State).filter(State.name == 'Louisiana'):
+        print('{}'.format(state.id))
+
+    session.commit()

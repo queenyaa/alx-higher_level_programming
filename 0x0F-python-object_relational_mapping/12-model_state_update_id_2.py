@@ -16,16 +16,18 @@ if __name__ = "__main__":
     imports State and Base from model_state
     """
 
+    user = '{}'.format(argv[1])
+    password = '{}'.format(argv[2])
+    db = '{}'.format(argv[3])
+
     d_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-        argv[1], argv[2], argv[3])
+        user, password, db)
 
     engine = create_engine(d_url)
     Session = sessionmaker(bind=engine)
 
     session = Session()
 
-    state = session.query(State).filter(State.id == 2).first()
-    state.name = "New Mexico"
-    session.commit()
+    session.query(State).filter(State.id == 2).update({'name': 'New Mexico'})
 
-    session.close()
+    session.commit()
