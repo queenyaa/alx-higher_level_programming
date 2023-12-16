@@ -6,7 +6,7 @@ the database, `hbtn_0e_6_usa`
 
 from model_state import State, Base
 from sqlalchemy.orm.session import sessionmaker, Session
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func
 from sys import argv
 
 
