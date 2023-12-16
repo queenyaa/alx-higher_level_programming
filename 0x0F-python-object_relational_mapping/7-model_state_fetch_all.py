@@ -15,11 +15,11 @@ if __name__ == "__main__":
     """
 
     user = '{}'.format(argv[1])
-    password= '{}'.format(argv[2])
-    db= '{}'.format(argv[3])
+    password = '{}'.format(argv[2])
+    db = '{}'.format(argv[3])
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-            format(user, password, db))
+                           format(user, password, db))
 
     # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
