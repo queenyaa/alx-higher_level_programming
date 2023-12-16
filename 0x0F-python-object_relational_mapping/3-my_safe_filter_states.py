@@ -19,23 +19,21 @@ if __name__ == "__main__":
         sys.exit(1)
     """
 
-    username, password, database, state_name = sys.argv[1],
-    sys.argv[2], sys.argv[3], '{}'.format(argv[4])
-
     d_connect = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3]
     )
 
-    cursor = d_connect.cursor()
+    d_cursor = d_connect.cursor()
 
-    cursor.execute("SELECT id, name FROM states WHERE name = %s\
-                    ORDER BY states.id ASC", (state_name,))
+    d_cursor.execute("SELECT id, name FROM states WHERE name LIKE \
+                    BINARY %(s_name)s ORDER BY states.id ASC",
+                    {'s_name': argv[4]})
 
-    row = cursor.fetchall()
+    rows = d_cursor.fetchall()
 
     for row in rows:
         print(row)
