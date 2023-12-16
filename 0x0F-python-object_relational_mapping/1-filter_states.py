@@ -35,8 +35,11 @@ if __name__ == "__main__":
     d_cursor = d_connect.cursor()
 
     # Execute the query to select and display states starting with 'N'
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
-    d_cursor.execute(query)
+    d_cursor.execute(
+             """SELECT * FROM states
+             WHERE name LIKE BINARY 'N%'
+             ORDER BY id;"""
+    )
 
     # Fetch all the rows
     rows = cursor.fetchall()
