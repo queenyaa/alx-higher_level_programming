@@ -3,10 +3,10 @@
 Prints the first state object from the database hbtn_0e_6_usa
 """
 
-import sys
+from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.session import sessionmaker, Session
 
 
 if __name__ == "__main__":
