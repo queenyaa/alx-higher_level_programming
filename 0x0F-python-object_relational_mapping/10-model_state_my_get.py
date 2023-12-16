@@ -5,7 +5,7 @@ the database, `hbtn_0e_6_usa`
 """
 
 from model_state import State, Base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.session import sessionmaker, Session
 from sqlalchemy import create_engine
 from sys import argv
 
@@ -25,8 +25,9 @@ if __name__ == "__main__":
 
     session = Session()
 
-    state = session.query(State).filter(State.name == argv[4]).first()
-    if state is not None:
-        print('{0}'.format(state.id))
+    state = session.query(State).order_by(State.id).filter(
+                State.name == func.binary(argv[4])).first()
+    if state:
+        print('{}'.format(state.id))
     else:
         print("Not found")
