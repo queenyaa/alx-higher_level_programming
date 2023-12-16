@@ -20,14 +20,13 @@ if __name__ == "__main__":
 
     d_cursor = d_connect.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
-            states.id ASC"
-    d_cursor.execute(query.format(argv[4]))
+    d_cursor.execute("SELECT id, name FROM states ORDER BY states.id ASC")
 
     rows = d_cursor.fetchall()
 
     for row in rows:
-        print(row)
+        if row[1][0] == 'N':
+            print(row)
 
-    cursor.close()
-    db.close()
+    # cursor.close()
+    # db.close()
