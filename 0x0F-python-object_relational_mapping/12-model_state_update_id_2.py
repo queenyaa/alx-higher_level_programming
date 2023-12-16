@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sys import argv
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     """
     takes 3 args, uses the SQLAlchemy
     imports State and Base from model_state
