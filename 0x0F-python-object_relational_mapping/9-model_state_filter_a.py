@@ -6,7 +6,7 @@ Script to list all State objects that contain the letter
 
 from model_state import State, Base
 from sys import argv
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.session import sessionmaker, Session
 from sqlalchemy import create_engine
 
 
