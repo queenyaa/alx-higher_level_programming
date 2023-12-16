@@ -32,13 +32,13 @@ if __name__ == "__main__":
 
     d_cursor = d_connect.cursor()
 
-    d_cursor.execute("SELECT c.name \
-                     FROM cities AS c LEFT JOIN states AS s\
-                     ON c.state_id = s.id \
+    d_cursor.execute("SELECT * FROM `cities` as `c` \
+                     INNER JOIN `states` as `s` \
+                     ON `c`.`state_id` = `s`.`id` \
                      WHERE s.name LIKE BINARY %(state_name)s \
-                     ORDER BY c.id ASC", {'state_name': argv[4]})
+                     ORDER BY `c`.`id`")
 
     rows = d_cursor.fetchall()
 
     # if rows is not None:
-    print(", ".join([c[0] for c in rows]))
+    print(", ".join([cr[2] for cr in rows if cr[4] == argv[4]]))
