@@ -5,8 +5,8 @@ the states table of database, `hbtn_0e_0_usa` where
 name matches the argument
 """
 
-import MySQLdb as db
-import sys
+import MySQLdb
+from sys import argv
 
 
 if __name__ == "__main__":
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     to a MySQL server running on localhost at port 3306
     """
 
-    d_connect = db.connect(host="localhost", port=3306,
+    d_connect = MySQLdb.connect(host="localhost", port=3306,
                            user=argv[1], passwd=argv[2], db=argv[3])
 
     d_cursor = d_connect.cursor()
