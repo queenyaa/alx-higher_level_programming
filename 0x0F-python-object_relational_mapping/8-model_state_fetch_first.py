@@ -15,9 +15,12 @@ if __name__ == "__main__":
     importing State and Base from model_state
     """
 
+    user = '{}'.format(argv[1])
+    password = '{}'.format(argv[2])
+    db = '{}'.format(argv[3])
+
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                           format(sys.argv[[1], sys.argv[2], sys.argv[3]),
-                            pool_pre_ping=True)
+                           format(user, password, db))
 
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -29,5 +32,3 @@ if __name__ == "__main__":
         print("{}: {}".format(first_state.id, first_state.name))
     else:
         print("Nothing")
-
-    session.close()
