@@ -21,16 +21,8 @@ if __name__ == "__main__":
     d_cursor = d_connect.cursor()
 
     # Execute the query to select and display states
-    d_cursor.execute("SELECT id * FROM states")
-    existing_states = d_cursor.fetchall()
 
-    if not existing_states:
-        d_cursor.execute(
-            "INSERT INTO states (name) VALUES "
-            "('California'), ('Arizona'), ('Texas'), ('New York'), ('Nevada')"
-        )
-
-    d_cursor.execute("SELECT id * FROM states")
+    d_cursor.execute("SELECT id, name FROM states ORDER BY states.id ASC")
 
     # Fetch all the rows
     rows = d_cursor.fetchall()
@@ -38,4 +30,4 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
 
-    d_connect.close()
+    # d_connect.close()
