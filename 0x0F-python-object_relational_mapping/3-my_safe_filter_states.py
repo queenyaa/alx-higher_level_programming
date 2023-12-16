@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     d_cursor.execute("SELECT id, name FROM states WHERE name LIKE \
                     BINARY %(name)s ORDER BY states.id ASC",
-                    {'name': argv[4]})
+                     {'name': argv[4]})
 
     rows = d_cursor.fetchall()
 
