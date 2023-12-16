@@ -25,9 +25,9 @@ if __name__ == "__main__":
     d_connect = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3]
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
 
     d_cursor = d_connect.cursor()
@@ -36,9 +36,10 @@ if __name__ == "__main__":
                      INNER JOIN `states` as `s` \
                      ON `c`.`state_id` = `s`.`id` \
                      WHERE s.name LIKE BINARY %(state_name)s \
-                     ORDER BY `c`.`id`")
+                     ORDER BY `c`.`id`", {"state_name": sys.argv[4]})
 
     rows = d_cursor.fetchall()
 
     # if rows is not None:
-    print(", ".join([cr[2] for cr in rows if cr[4] == argv[4]]))
+    if rows:
+        print(", ".join([cr[2] for cr in rows if cr[4] == argv[4]]))
