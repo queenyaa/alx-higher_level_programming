@@ -26,21 +26,22 @@ if __name__ == "__main__":
     d_connect = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3]
     )
 
     # Create a cursor object to interact with the database
     d_cursor = d_connect.cursor()
 
     # Execute the query to select and display states starting with 'N'
-    d_cursor.execute("SELECT id, name FROM states ORDER BY states.id ASC")
+    d_cursor.execute("SELECT id, name FROM states WHERE name LIKE BINARY 'N%' \
+            ORDER BY states.id ASC")
 
     # Fetch all the rows
     rows = d_cursor.fetchall()
 
     # Dispay the results
     for row in rows:
-        if row[1][0] == 'N':
-            print(row)
+        # if row[1][0] == 'N':
+        print(row)
