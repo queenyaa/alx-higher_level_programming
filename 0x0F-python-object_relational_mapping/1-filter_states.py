@@ -20,15 +20,15 @@ if __name__ == "__main__":
     """
 
     # Extract command-line arguments
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    # username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 
     # Connect to MysQL server
     d_connect = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
 
     # Create a cursor object to interact with the database
@@ -42,9 +42,9 @@ if __name__ == "__main__":
     )
 
     # Fetch all the rows
-    rows = cursor.fetchall()
+    rows = d_cursor.fetchall()
 
     # Dispay the results
     for row in rows:
-        if row[1][0] == 'N':
-            print(row)
+        # if row[1][0] == 'N':
+        print(row)
