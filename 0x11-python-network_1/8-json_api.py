@@ -22,7 +22,7 @@ if __name__ == '__main__':
         # Try to parse the response as JSON
         json_response = response.json()
         # check if the JSON is properly formatted and not empty
-        if json_response:
+        if 'id' in json_response and 'name' in json_response:
             print(f"[{json_response.get('id')}] {json_response.get('name')}")
         else:
             print("No result")
