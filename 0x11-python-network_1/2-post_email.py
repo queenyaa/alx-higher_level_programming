@@ -17,7 +17,7 @@ if __name__ == '__main__':
     # Encode the email parameter for the POST request
     data = urllib.parse.urlencode({'email': email}).encode('utf-8')
 
-    with urllib.request.urlopen(url, data=data) as reponse:
+    with urllib.request.urlopen(url, data=data) as response:
         # Read and print the body of the response
         cont = response.read().decode('utf-8')
         print(cont)
