@@ -16,7 +16,7 @@ if __name__ == '__main__':
     payload = {'v': v}
 
     # Send a POST request with the payload
-    response = request.post("http://0.0.0.0:5000/search_user", data=payload)
+    response = requests.post("http://0.0.0.0:5000/search_user", data=payload)
 
     try:
         # Try to parse the response as JSON
