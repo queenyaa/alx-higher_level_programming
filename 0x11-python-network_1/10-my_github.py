@@ -15,6 +15,8 @@ if __name__ == '__main__':
 
     # set up the authentication header using Basic Authentication
     auth = (username, token)
+    # GitHub API endpoint for the authenticated user
+    url = "https://api.github.com/user"
 
     # Send a GET request to the GitHub API
     response = requests.get(url, auth=auth)
