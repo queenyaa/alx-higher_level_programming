@@ -10,7 +10,7 @@ import sys
 
 if __name__ == '__main__':
     # Set q to an empty string if no argument is given
-    v = sys.argv[1] if len(sys.argv) > 1 else ""
+    q = sys.argv[1] if len(sys.argv) > 1 else ""
 
     # Define the payload with the letter as a parameter
     payload = {'q': q}
