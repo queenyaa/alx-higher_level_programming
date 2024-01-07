@@ -13,7 +13,7 @@ if __name__ == '__main__':
     repo_name, owner_name = argv[1], argv[2]
     # GitHub API endpoint for listing commits
     url = f"https://api.github.com/repos/{owner_name}/{repo_name}/commits"
-    # send a GET request to the GitHub API 
+    # send a GET request to the GitHub API
     response = requests.get(url)
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
