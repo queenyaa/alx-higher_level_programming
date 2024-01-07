@@ -23,8 +23,8 @@ if __name__ == '__main__':
         # Print the details of the 10 most recent commits
         for commit in commits[:10]:
             sha = commit.get('sha')
-            author_name = commit.get('commit', {}).get('author', {}).get
-                                ('name', 'Unknown')
+            commit_info = commit.get('commit', {}).get('author', {})
+            author_name = commit_info.get('name', 'Unknown')
             print(f"{sha}: {author_name}")
 
     else:
