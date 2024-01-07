@@ -447,4 +447,38 @@ In conclusion, Task 9 equips developers with essential skills in authenticating 
 ---
 ### Task 10
 ===============================
+**Summary: Importance of Task 10**
 
+Task 10 holds significant importance as it simulates a common scenario faced by backend developers, emphasizing essential skills related to interacting with external APIs, handling authentication, and processing data. The key aspects that highlight the importance of this task include:
+
+1. **GitHub API Interaction:**
+   - The task involves using the GitHub API to retrieve information about commits in a repository. This practical experience is valuable for developers who need to integrate their applications with external services and leverage data provided by APIs.
+
+2. **Authentication with GitHub:**
+   - By requiring the use of a personal access token, the task reinforces the importance of secure authentication practices when interacting with APIs. Understanding how to handle authentication securely is a fundamental skill for backend developers.
+
+3. **HTTP GET Requests:**
+   - The script utilizes HTTP GET requests to fetch data from the GitHub API. This experience is crucial for developers as it aligns with the foundational principles of RESTful web services and HTTP methods.
+
+4. **Handling API Responses:**
+   - The script processes the API response, demonstrating the need to parse JSON data and extract relevant information. This skill is vital for developers working with diverse data structures returned by APIs.
+
+5. **Rate Limit Considerations:**
+   - The mention of a rate limit (only 60 requests per hour per IP for unauthenticated requests) highlights the importance of being mindful of API rate limits. Developers must understand and adhere to rate limits to avoid disruptions in service.
+
+6. **Command-Line Argument Handling:**
+   - The script accepts repository name and owner name as command-line arguments. Handling command-line arguments is a common practice in scripting, providing flexibility and configurability to scripts.
+
+7. **Error Handling:**
+   - The script includes error handling mechanisms, such as checking the HTTP status code. Handling errors gracefully is essential for robust applications that can respond effectively to unexpected scenarios.
+
+8. **Real-world Application Integration:**
+   - Task 10 replicates a scenario where developers need to fetch and display information from a third-party service (GitHub). This mirrors real-world situations where applications depend on external APIs for data retrieval.
+
+9. **Data Presentation:**
+   - The script presents commit information in a clear format, showcasing the importance of effective data presentation. This skill is valuable for creating user-friendly applications that provide meaningful information to users.
+
+10. **Limited API Requests:**
+    - The task mentions a rate limit, emphasizing the need for efficient and optimized code. Developers must be aware of limitations imposed by APIs and design their applications to make the most effective use of available resources.
+
+In conclusion, Task 10 encapsulates a range of skills crucial for backend developers, including API interaction, authentication, data parsing, error handling, and adherence to rate limits. These skills collectively contribute to the development of robust and efficient backend systems.
