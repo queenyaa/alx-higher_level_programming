@@ -56,4 +56,38 @@ In summary, Task 0 is important as it combines algorithmic implementation with a
 ---
 ## Task 1
 ---
+Task 1, which involves implementing the Binary search algorithm, is important for several reasons:
+
+1. **Efficiency in Searching:** Binary search is a highly efficient algorithm for finding a specific value in a sorted array. Understanding and implementing binary search is crucial for developing efficient algorithms in scenarios where quick search operations are required.
+
+2. **Importance of Sorted Data:** Binary search relies on the assumption that the input array is sorted in ascending order. This highlights the importance of maintaining sorted data structures for certain algorithms to be applicable.
+
+3. **Logarithmic Time Complexity:** Binary search has a time complexity of O(log n), which is significantly faster than linear search for large datasets. Learning and using algorithms with lower time complexity is fundamental to efficient programming.
+
+4. **Algorithmic Understanding:** Implementing binary search reinforces the understanding of algorithmic principles, especially divide-and-conquer strategies. This knowledge is transferable to other algorithms and problem-solving scenarios.
+
+5. **Handling Edge Cases:** The task specifies conditions such as ensuring the array is sorted, the value won't appear more than once, and handling cases where the array is NULL. Addressing these conditions teaches important skills related to input validation and handling edge cases.
+
+6. **Debugging and Testing:** The provided main function serves as a testing framework for the implemented binary search function. Debugging and testing skills are essential for ensuring the correctness and reliability of the implemented algorithm.
+
+7. **Print Statements for Visualization:** The task requires printing the array being searched at each step. This emphasis on visualization through print statements aids in understanding the progression of the algorithm and is a useful debugging technique.
+
+8. **Building on Previous Knowledge:** Task 1 builds on the concepts introduced in Task 0 (linear search) and extends the understanding of different search algorithms. This incremental learning approach is valuable for mastering algorithmic techniques.
+
+In summary, Task 1 is important as it introduces the implementation of a more efficient search algorithm (binary search), reinforces algorithmic understanding, emphasizes the importance of sorted data, and provides opportunities for testing, debugging, and handling specific conditions and edge cases. These skills are essential for writing efficient and reliable code in real-world programming scenarios.
+---
+
+---
+## Task 2
+---
+The worst-case time complexity of a linear search in an array of size \( n \) is \( O(n) \). In a linear search, the algorithm iterates through each element of the array one by one until the target value is found or the entire array has been traversed.
+
+In the worst-case scenario, the target value may be located at the last position of the array, or it may not be present in the array at all. In either case, the algorithm needs to check each element sequentially, leading to a linear relationship between the size of the array (\( n \)) and the number of operations performed.
+
+Therefore, the time complexity of a linear search is proportional to the size of the input array, making it \( O(n) \) in the worst case.
+---
+
+---
+## Task 3
+---
 
