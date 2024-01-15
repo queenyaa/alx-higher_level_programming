@@ -126,4 +126,44 @@ In summary, binary search has an efficient space complexity of \( O(1) \), makin
 ---
 ## Task 6
 ---
+The space complexity of the provided function `allocate_map` is \( O(n \cdot m) \).
+
+Let's break down the space complexity analysis:
+
+1. The function allocates memory for an array of \( n \) pointers (`int *`). This is done using `malloc(sizeof(int *) * n)`. Each pointer will point to a row in the 2D array.
+
+2. For each pointer, the function allocates memory for an array of \( m \) integers (`int`). This is done in the loop with `malloc(sizeof(int) * m)`. Each of these arrays represents a row in the 2D array.
+
+Therefore, the total space complexity is the sum of the space required for the array of pointers (\( O(n) \)) and the space required for the individual arrays of integers (\( O(n \cdot m) \)).
+
+As a result, the overall space complexity is \( O(n + n \cdot m) \), but in big-O notation, we drop the constant factors and lower-order terms, so the space complexity is \( O(n \cdot m) \).
+---
+
+---
+## Task 7
+---
+Task 7, which involves implementing the Jump search algorithm, is important for several reasons:
+
+1. **Efficient Searching:** Jump search is an efficient searching algorithm, especially for sorted arrays. Understanding and implementing this algorithm is valuable for scenarios where quick searches are required, and the dataset is large.
+
+2. **Logarithmic Time Complexity:** Jump search has a time complexity of \(O(\sqrt{n})\), which is close to logarithmic. This makes it more efficient than linear search (\(O(n)\)) for large datasets.
+
+3. **Square Root as Jump Step:** The task specifically introduces the use of the square root of the size of the array as the jump step. This choice of step size contributes to the efficiency of the algorithm.
+
+4. **Balancing Time and Space Complexity:** Jump search provides a balance between time and space complexity. While not as fast as binary search, it requires less random access to memory, making it suitable for scenarios with constraints on memory access.
+
+5. **Practical Implementation:** The implementation of the Jump search algorithm in Task 7 provides a practical example of how the algorithm can be translated into code, including the use of print statements for visualization during the search process.
+
+6. **Search Algorithm Diversity:** Being exposed to different search algorithms, such as linear search, binary search, and now jump search, helps build a repertoire of techniques. This knowledge is valuable for selecting the most appropriate algorithm based on the characteristics of the problem.
+
+7. **Understanding Algorithmic Trade-offs:** Task 7 contributes to the understanding of algorithmic trade-offs. Jump search offers a trade-off between the simplicity of linear search and the efficiency of binary search.
+
+8. **Real-world Applicability:** Jump search is used in practical applications where the dataset is sorted, and its efficiency makes it a reasonable choice. Learning this algorithm is relevant for real-world problem-solving.
+
+In summary, Task 7 is important as it introduces an efficient search algorithm (Jump search) and provides practical experience in implementing and understanding its characteristics. This knowledge is valuable for programmers to make informed decisions when selecting search algorithms based on the requirements of different scenarios.
+---
+
+---
+## Task 8
+---
 
