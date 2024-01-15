@@ -90,4 +90,40 @@ Therefore, the time complexity of a linear search is proportional to the size of
 ---
 ## Task 3
 ---
+The space complexity of an iterative linear search algorithm in an array of size \( n \) is \( O(1) \). 
+
+In an iterative linear search, the algorithm uses a constant amount of additional space, regardless of the size of the input array. The space complexity is not dependent on the input size because the algorithm does not use any data structures (like arrays, lists, or recursive function call stacks) that grow with the input.
+
+The space complexity is often categorized into different classes based on the relationship between the additional space used by the algorithm and the size of the input. In this case, \( O(1) \) indicates constant space complexity.
+
+In summary, the iterative linear search algorithm has a constant space complexity, making it efficient in terms of memory usage, particularly when dealing with large datasets.
+---
+
+---
+## Task 4
+---
+The worst-case time complexity of a binary search in an array of size \( n \) is \( O(\log n) \). 
+
+Binary search is a divide-and-conquer algorithm that repeatedly divides the search interval in half. In each step, it compares the target value to the middle element of the array and eliminates half of the remaining elements based on the comparison. This logarithmic reduction in the search space results in a time complexity of \( O(\log n) \) in the worst case.
+
+The logarithmic time complexity indicates that the number of operations grows logarithmically with the size of the input array. Binary search is particularly efficient for large datasets compared to linear search (\( O(n) \)).
+
+In summary, the worst-case time complexity of a binary search is \( O(\log n) \), making it a highly efficient algorithm for searching in sorted arrays.
+---
+
+---
+## Task 5
+---
+The space complexity (worst case) of a binary search in an array of size \( n \) is \( O(1) \).
+
+Binary search is an iterative algorithm that works by repeatedly dividing the search interval in half, without using any additional data structures that scale with the input size. The algorithm only requires a constant amount of space to store a few variables, such as indices and the target value.
+
+As a result, the space complexity of binary search remains constant regardless of the size of the input array, leading to a space complexity of \( O(1) \).
+
+In summary, binary search has an efficient space complexity of \( O(1) \), making it well-suited for scenarios where memory usage needs to be minimized.
+---
+
+---
+## Task 6
+---
 
