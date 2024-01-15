@@ -1,50 +1,43 @@
 #!/usr/bin/python3
 
 """
-Program to read IP logs from stdin and print
-metrics every 10 lines
+Reads stdin line by line and computes
+metrics
 """
+import sys
 
 
-def print_sorted(stat_cd):
-    """
-    Print status codes with nonzero value
-    """
-
-    sort_key = sorted(stat_cd.keys())
-    print('\n'.join(["{:d}: {:d}".format(g, stat_cd[g])
-                        for g in sort_key if stat_cd[g] != 0]))
-
-
-if __name__ == '__main__':
-    import sys
-
-    tot = 0
-    stat_cd = \
-            {cd: 0 for cd in [200, 300, 400, 401, 403, 404, 405, 500]}
-    try:
-        o = 0
-        for lyn in sys.stdin:
-            wds = lyn.split()
+file_size = 0
+status_tal = {"200": 0, "300": 0, "400": 0, "401": 0,
+              "403": 0, "404": 0, "405": 0, "500": 0}
+x = 0
+try:
+    for line in sys.stdin:
+        tok = line.split()
+        if len(tok) >= 2:
+            b = x
+            if tok[-2] in status_tal:
+                status_tal[tok[-2]] += 1
+                x += 1
             try:
-                file_size = int(wds[-1])
-                tot += file_size
-            except (IndexError, ValueError):
-                pass
+                file_size += int(tok[-1])
+                if b == x:
+                    x += 1
+            except FileNotFoundError:
+                if b == x:
+                    continue
+        if x % 10 == 0:
+            print("File size: {:d}".format(file_size))
+            for key, value in sorted(status_tal.items()):
+                if value:
+                    print("{:s}: {:d}".format(key, value))
+    print("File size: {:d}".format(file_size))
+    for key, value in sorted(status_tal.items()):
+        if value:
+            print("{:s}: {:d}".format(key, value))
 
-            try:
-                code = int(wds[-2])
-                if code in stat_cd:
-                    stat_cd[code] += 1
-            except (IndexError, ValueError):
-                pass
-
-            o += 1
-
-            if o % 10 == 0:
-                print("File size: {}".format(tot))
-                print_sorted(stat_cd)
-
-    except KeyboadInterrupt:
-        print("File size: {}".format(tot))
-        print_sorted(stat_cd)
+except KeyboardInterrupt:
+    print("File size: {:d}".format(file_size))
+    for key, value in sorted(status_tal.items()):
+        if value:
+            print("{:s}: {:d}".format(key,value))
