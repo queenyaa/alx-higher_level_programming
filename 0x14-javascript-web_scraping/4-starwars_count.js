@@ -7,17 +7,26 @@
 const request = require('request');
 
 const apiUrl = process.argv[2];
-const characterId = 18;
-const movieId = `https://swapi-api.alx-tools.com/api/people/${characterId}/`;
 
-request(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error(error);
+request(apiUrl, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const films = JSON.parse(body).results;
+    let num = 0;
+
+    for (const filmIndex in films) {
+      const filmChars = films[filmIndex].characters;
+
+      for (const charIndex in filmChars) {
+        if (filmChars[charIndex].includes('18')) {
+          num++;
+        }
+      }
+    }
+
+    console.log(num);
   } else {
-    const filmsData = JSON.parse(body);
-    const filmsWithWedge = filmsData.results.filter(film =>
-      film.characters.includes(movieId)
-    );
-    console.log(filmsWithWedge.length);
+    console.log('An error occurred. Status code: ' + response.statusCode);
   }
 });
